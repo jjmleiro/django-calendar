@@ -11,6 +11,7 @@
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+#import sqlserver_ado
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -25,10 +26,23 @@ ALLOWED_HOSTS = ['*']
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#    }
+#}
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': 'SQL2005_254523_mla',
+        'ENGINE': 'django_pyodbc',
+        'HOST': 'livedemo.mylittleadmin.com/livedemo\\ss2005',
+        'USER': 'mlademo',
+        'PASSWORD': 'mlademo',
+        'OPTIONS': {
+           'host_is_server': True
+       },
     }
 }
 
